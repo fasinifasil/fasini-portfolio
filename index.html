@@ -17,7 +17,6 @@
 
 body {
   background: #f4f6fb;
-  color: #111;
 }
 
 /* NAV */
@@ -49,8 +48,6 @@ nav ul li a {
 
 nav ul li a.active {
   color: #38bdf8;
-  border-bottom: 2px solid #38bdf8;
-  padding-bottom: 3px;
 }
 
 /* HERO */
@@ -89,14 +86,6 @@ nav ul li a.active {
 
 .hero h1 {
   font-size: 40px;
-  animation: fadeDown 1s ease;
-}
-
-.hero p {
-  max-width: 700px;
-  margin-top: 10px;
-  opacity: 0.9;
-  animation: fadeUp 1.2s ease;
 }
 
 /* SECTIONS */
@@ -112,27 +101,33 @@ section {
   margin-bottom: 30px;
 }
 
-/* ABOUT */
-.about p {
+/* ABOUT COVER */
+#about {
+  background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+#about .content {
+  position: relative;
   text-align: center;
-  line-height: 1.8;
+  max-width: 900px;
+  margin: auto;
 }
 
 /* SKILLS */
 .skills-section {
-  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') center/cover;
-  position: relative;
-}
-
-.skills-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.85);
-}
-
-.skills-section > * {
-  position: relative;
+  background: #fff;
 }
 
 .skills-container {
@@ -143,46 +138,37 @@ section {
 }
 
 .skills-container span {
-  background: white;
+  background: #f1f5f9;
   padding: 10px 14px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  cursor: pointer;
   transition: 0.3s;
 }
 
 .skills-container span:hover {
-  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  background: #2563eb;
   color: white;
-  transform: translateY(-6px);
 }
 
-/* DESIGN (INSTAGRAM STYLE VERTICAL) */
+/* DESIGN ROW */
 .design-gallery {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .design-card {
-  width: 100%;
-  max-width: 500px;
-  background: white;
-  border-radius: 14px;
+  width: 300px;
+  height: 220px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.4s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .design-card img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
-}
-
-.design-card:hover {
-  transform: translateY(-10px) scale(1.02);
 }
 
 /* PROJECTS */
@@ -196,20 +182,8 @@ section {
   background: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   text-align: center;
-  transition: 0.4s;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #2563eb;
-  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
 /* VIDEOS */
@@ -224,11 +198,6 @@ section {
   padding: 10px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  transition: 0.4s;
-}
-
-.video-card:hover {
-  transform: translateY(-8px);
 }
 
 /* FOOTER */
@@ -237,29 +206,6 @@ footer {
   padding: 20px;
   background: #0f172a;
   color: white;
-}
-
-/* ANIMATION */
-.fade-element {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.6s ease;
-}
-
-.fade-element.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* KEYFRAMES */
-@keyframes fadeDown {
-  from {opacity:0; transform: translateY(-30px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-@keyframes fadeUp {
-  from {opacity:0; transform: translateY(30px);}
-  to {opacity:1; transform: translateY(0);}
 }
 </style>
 </head>
@@ -282,24 +228,25 @@ footer {
 <div class="hero">
   <img src="profile.jpg" class="profile-img">
   <h1>Fasini Beegum</h1>
-  <p>Full Stack Developer | Python | Django | IT & Digital Solutions</p>
+  <p>Full Stack Developer | Python | Django</p>
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="fade-element">
-  <h2 class="section-title">About Me</h2>
-  <p>
-    I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
-    I started my career as a full-stack trainer where I guided learners in building real-world projects.
-    Later, I moved into development and built systems including Inventory Management, HR Management, and Learning Management Systems.
-    <br><br>
-    I work on both frontend and backend development, along with website updates, IT support, troubleshooting, social media management, and media design.
-    I continuously explore new technologies to improve my skills and deliver effective solutions.
-  </p>
+<section id="about">
+  <div class="content">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
+      I started my career as a full-stack trainer where I guided learners in building real-world projects.
+      Later, I moved into development and built systems including Inventory Management, HR Management, and Learning Management Systems.
+      <br><br>
+      I work on both frontend and backend development along with IT support, troubleshooting, and media design.
+    </p>
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills-section fade-element">
+<section id="skills" class="skills-section">
   <h2 class="section-title">Skills</h2>
 
   <div class="skills-container">
@@ -310,16 +257,14 @@ footer {
     <span>CSS</span>
     <span>JavaScript</span>
     <span>MySQL</span>
-    <span>PostgreSQL</span>
     <span>Git</span>
     <span>Photoshop</span>
     <span>Canva</span>
-    <span>Logo Design</span>
   </div>
 </section>
 
 <!-- DESIGN WORKS -->
-<section id="designs" class="fade-element">
+<section id="designs">
   <h2 class="section-title">Design Works</h2>
 
   <div class="design-gallery">
@@ -330,40 +275,43 @@ footer {
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="fade-element">
+<section id="projects">
   <h2 class="section-title">Projects</h2>
 
   <div class="projects">
     <div class="project-card">
       <h3>HR Management System</h3>
-      <a href="https://www.hrgca.org/login/?next=/" target="_blank">View Project</a>
+      <a href="https://www.hrgca.org/login/?next=/" target="_blank">View</a>
     </div>
 
     <div class="project-card">
-      <h3>Inventory Management System</h3>
-      <a href="https://www.gcainventory.ae/" target="_blank">View Project</a>
+      <h3>Inventory System</h3>
+      <a href="https://www.gcainventory.ae/" target="_blank">View</a>
     </div>
   </div>
 </section>
 
 <!-- VIDEOS -->
-<section id="videos" class="fade-element">
+<section id="videos">
   <h2 class="section-title">AI Advertising Videos</h2>
 
   <div class="video-grid">
 
     <div class="video-card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188">
+        <section></section>
       </blockquote>
     </div>
 
     <div class="video-card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052">
+        <section></section>
       </blockquote>
     </div>
 
     <div class="video-card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649">
+        <section></section>
       </blockquote>
     </div>
 
@@ -379,25 +327,13 @@ footer {
 <script async src="https://www.tiktok.com/embed.js"></script>
 
 <script>
-/* Smooth Scroll */
+/* Smooth scroll */
 $('nav a').click(function(e){
   e.preventDefault();
   const target = $(this).attr('href');
   $('html, body').animate({
     scrollTop: $(target).offset().top - 70
   }, 700);
-});
-
-/* Scroll Reveal */
-$(window).on('scroll', function(){
-  $('.fade-element').each(function(){
-    let top = $(this).offset().top;
-    let winBottom = $(window).scrollTop() + $(window).height();
-
-    if(top < winBottom - 50){
-      $(this).addClass('show');
-    }
-  });
 });
 </script>
 
