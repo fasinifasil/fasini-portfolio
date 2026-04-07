@@ -24,15 +24,11 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 10px; }
-
-        /* --- Navigation: Glassmorphism --- */
+        /* --- Navigation --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 8%; height: 75px; position: fixed; width: 100%; top: 0; z-index: 1000;
-            background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(15px);
+            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
         }
 
@@ -43,106 +39,85 @@
         nav ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav ul li a:hover { color: var(--brand); }
 
-        /* --- Hero with Parallax Cover --- */
-        .hero {
-            height: 95vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
-        }
-
+        /* --- Hero Section --- */
+        .hero { height: 95vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: url('cover.jpg') center/cover no-repeat; filter: brightness(0.2); z-index: -1; transform: scale(1.1);
         }
 
-        .profile-container {
-            width: 170px; height: 170px; margin: 0 auto 30px; position: relative;
-        }
-
+        .profile-container { width: 170px; height: 170px; margin: 0 auto 30px; position: relative; }
         .profile-ring {
             position: absolute; inset: -8px; border: 2px solid var(--brand); border-radius: 50%;
             border-top-color: transparent; animation: spin 4s linear infinite;
         }
-
         .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); position: relative; z-index: 2; }
         
         @keyframes spin { 100% { transform: rotate(360deg); } }
-
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -3px; line-height: 1; }
         .hero p { font-size: 1.1rem; color: var(--text-muted); letter-spacing: 1px; }
 
-        /* --- Sections Layout --- */
+        /* --- Global Sections --- */
         section { padding: 120px 8%; position: relative; }
         .section-header { margin-bottom: 60px; text-align: center; }
         .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
         .accent { width: 40px; height: 4px; background: var(--brand); margin: 15px auto; border-radius: 10px; box-shadow: 0 0 15px var(--brand-glow); }
 
-        /* --- About: Modern Bento --- */
+        /* --- Experience Bento --- */
         .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
-        .bento { background: var(--card); border: 1px solid var(--border); padding: 45px; border-radius: 30px; position: relative; overflow: hidden; }
+        .bento { background: var(--card); border: 1px solid var(--border); padding: 45px; border-radius: 30px; }
         .bento-blue { background: var(--brand); color: white; }
         .stats { display: flex; gap: 40px; margin-top: 35px; border-top: 1px solid var(--border); padding-top: 25px; }
         .stat-item h3 { font-size: 2rem; font-weight: 800; }
         .stat-item p { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
 
-        /* --- Skills: Interactive Tags --- */
+        /* --- Skills --- */
         .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
         .skill-tag { 
             background: var(--glass); border: 1px solid var(--border); padding: 12px 24px; 
             border-radius: 15px; font-size: 0.85rem; font-weight: 600; transition: 0.4s;
             display: flex; align-items: center; gap: 10px;
         }
-        .skill-tag:hover { background: var(--brand); transform: translateY(-5px); box-shadow: 0 10px 20px var(--brand-glow); border-color: transparent; }
+        .skill-tag:hover { background: var(--brand); transform: translateY(-5px); border-color: transparent; }
 
         /* --- Design Showcase + Lightbox --- */
         .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .design-item { 
-            height: 300px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border);
-            cursor: pointer; position: relative;
-        }
-        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
-        .design-item:hover img { transform: scale(1.1); filter: brightness(0.6); }
-        .design-item::after { 
-            content: '\f06e'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 1.5rem; opacity: 0; transition: 0.3s;
-        }
-        .design-item:hover::after { opacity: 1; }
+        .design-item { height: 300px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; }
+        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .design-item:hover img { transform: scale(1.08); filter: brightness(0.6); }
 
-        /* Lightbox Overlay */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
         }
-        #lightbox img { max-width: 85%; max-height: 80%; border-radius: 15px; transform: scale(0.9); transition: 0.4s ease; }
+        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
         #lightbox.active { display: flex; }
-        #lightbox.active img { transform: scale(1); }
 
-        /* --- Projects: Modern Cards --- */
+        /* --- Video Section --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .video-card { background: var(--card); border-radius: 25px; overflow: hidden; border: 1px solid var(--border); }
+        .video-header { padding: 15px 20px; background: var(--glass); display: flex; justify-content: space-between; align-items: center; }
+        .video-label { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+        .label-red { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .label-blue { background: rgba(37, 99, 235, 0.2); color: #60a5fa; }
+        .label-cyan { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+        .video-container { width: 100%; aspect-ratio: 9/16; background: #000; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- Projects --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .project-card { 
-            background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 30px; 
-            transition: 0.4s; position: relative;
-        }
+        .project-card { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 30px; transition: 0.4s; }
         .project-card:hover { border-color: var(--brand); transform: translateY(-10px); }
-        .project-card i { font-size: 2.5rem; color: var(--brand); margin-bottom: 25px; display: block; }
-        .project-link { 
-            display: inline-flex; align-items: center; gap: 10px; margin-top: 25px; 
-            color: var(--brand); text-decoration: none; font-weight: 700; font-size: 0.85rem;
-        }
+        .project-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 25px; color: var(--brand); text-decoration: none; font-weight: 700; font-size: 0.85rem; }
 
-        /* --- Videos: TikTok Grid --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .video-card { background: #000; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-
-        footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; }
+        footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 
         @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } nav ul { display: none; } }
     </style>
 </head>
 <body>
 
-    <div id="lightbox">
-        <img src="" alt="Expanded View">
-    </div>
+    <div id="lightbox"><img src="" alt="Gallery Preview"></div>
 
     <nav>
         <div class="logo">FASINI BEEGUM <span>Fullstack Developer</span></div>
@@ -163,25 +138,25 @@
                 <img src="profile.jpg" class="profile-img" alt="Fasini Beegum">
             </div>
             <h1 class="reveal">Fasini Beegum</h1>
-            <p class="reveal">Architecting Scalable Business Solutions with Python & Django</p>
+            <p class="reveal">Building Scalable Digital Infrastructure with Python & Django</p>
         </div>
     </div>
 
     <section id="about">
         <div class="about-grid">
             <div class="bento reveal">
-                <p style="text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: var(--brand); margin-bottom: 15px; letter-spacing: 2px;">Professional Path</p>
+                <p style="text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: var(--brand); margin-bottom: 15px; letter-spacing: 2px;">Professional Summary</p>
                 <h2 style="margin-bottom: 20px;">Merging technical logic with enterprise scalability.</h2>
-                <p style="color: var(--text-muted);">IT B.Tech graduate with extensive experience in full-stack architecture. From a Lead Technical Trainer to an Engineer building HRMS and Inventory systems, I deliver clean, production-ready software.</p>
+                <p style="color: var(--text-muted);">IT B.Tech graduate with deep expertise in full-stack architecture. I build high-performance HRMS and Inventory systems with a focus on clean, maintainable code.</p>
                 <div class="stats">
-                    <div class="stat-item"><h3>4+</h3><p>Years Exp</p></div>
-                    <div class="stat-item"><h3>15+</h3><p>Systems Built</p></div>
+                    <div class="stat-item"><h3>4+</h3><p>Years Tech</p></div>
+                    <div class="stat-item"><h3>15+</h3><p>Live Proj</p></div>
                 </div>
             </div>
             <div class="bento bento-blue reveal">
-                <i class="fas fa-code" style="font-size: 3rem; margin-bottom: 25px; opacity: 0.5;"></i>
-                <h3 style="margin-bottom: 15px;">Lead Software Engineer</h3>
-                <p>Expertise in Django, Python, and SQL database optimization for high-performance business tools.</p>
+                <i class="fas fa-microchip" style="font-size: 3rem; margin-bottom: 25px; opacity: 0.5;"></i>
+                <h3 style="margin-bottom: 15px;">Engineering Strategy</h3>
+                <p>Enterprise Application Development, Database Optimization, and High-Performance Backend Architectures.</p>
             </div>
         </div>
     </section>
@@ -198,14 +173,12 @@
             <div class="skill-tag reveal"><i class="fas fa-bolt" style="color:#f7df1e"></i> REST APIs</div>
             <div class="skill-tag reveal"><i class="fab fa-js" style="color:#f0db4f"></i> JavaScript</div>
             <div class="skill-tag reveal"><i class="fab fa-git" style="color:#f1502f"></i> Git</div>
-            <div class="skill-tag reveal"><i class="fas fa-palette" style="color:#31a8ff"></i> Photoshop</div>
-            <div class="skill-tag reveal"><i class="fas fa-video" style="color:#ff0050"></i> AI Video</div>
         </div>
     </section>
 
     <section id="designs">
         <div class="section-header reveal">
-            <h2>Creative Work</h2>
+            <h2>Creative Direction</h2>
             <div class="accent"></div>
         </div>
         <div class="design-grid">
@@ -217,39 +190,42 @@
 
     <section id="projects">
         <div class="section-header reveal">
-            <h2>Enterprise Systems</h2>
+            <h2>Core Systems</h2>
             <div class="accent"></div>
         </div>
         <div class="project-grid">
             <div class="project-card reveal">
-                <i class="fas fa-users-gear"></i>
+                <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
                 <h3>HR Management</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Automated payroll and lifecycle portal for large-scale organizations.</p>
-                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">LATEST VERSION <i class="fas fa-arrow-right"></i></a>
+                <p style="color: var(--text-muted); margin-top: 10px;">End-to-end employee lifecycle and payroll automation portal.</p>
+                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">DEPLOYED VERSION <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="project-card reveal">
-                <i class="fas fa-boxes-stacked"></i>
+                <i class="fas fa-warehouse" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
                 <h3>Inventory Hub</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Real-time asset tracking engine with cloud-sync capabilities.</p>
-                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">LATEST VERSION <i class="fas fa-arrow-right"></i></a>
+                <p style="color: var(--text-muted); margin-top: 10px;">Real-time stock management and cloud-synced asset tracking.</p>
+                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">DEPLOYED VERSION <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
     <section id="videos">
         <div class="section-header reveal">
-            <h2>Social Media Production</h2>
+            <h2>Production Showcase</h2>
             <div class="accent"></div>
         </div>
         <div class="video-grid">
             <div class="video-card reveal">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188"><section></section></blockquote>
+                <div class="video-header"><span style="font-weight:700">#01</span><span class="video-label label-red">WITHOUT ASL</span></div>
+                <div class="video-container"><video controls><source src="without-asl.mp4" type="video/mp4"></video></div>
             </div>
             <div class="video-card reveal">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052"><section></section></blockquote>
+                <div class="video-header"><span style="font-weight:700">#02</span><span class="video-label label-blue">WITH ASL</span></div>
+                <div class="video-container"><video controls><source src="with-asl.mp4" type="video/mp4"></video></div>
             </div>
             <div class="video-card reveal">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649"><section></section></blockquote>
+                <div class="video-header"><span style="font-weight:700">#03</span><span class="video-label label-cyan">USA TO UAE</span></div>
+                <div class="video-container"><video controls><source src="usa-to-uae.mp4" type="video/mp4"></video></div>
             </div>
         </div>
     </section>
@@ -260,15 +236,11 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script async src="https://www.tiktok.com/embed.js"></script>
-
     <script>
         $(document).ready(function() {
-            // 1. Reveal Animations
-            const sr = ScrollReveal({ origin: 'bottom', distance: '30px', duration: 1000, delay: 100 });
-            sr.reveal('.reveal', { interval: 120 });
-
-            // 2. Lightbox Popup
+            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, interval: 120, origin: 'bottom' });
+            
+            // Image Popup Logic
             $('.design-item').on('click', function() {
                 const src = $(this).find('img').attr('src');
                 $('#lightbox img').attr('src', src);
