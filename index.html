@@ -1,339 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fasini Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasini Beegum | Full Stack Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-body {
-  background: #f4f6fb;
-}
+        body {
+            background-color: #020617;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 50px;
-  background: #0f172a;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
 
-nav ul li {
-  margin-left: 20px;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        nav ul li a:hover, nav ul li a.active { color: var(--primary); }
 
-nav ul li a.active {
-  color: #38bdf8;
-}
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top right, #1e1b4b, transparent),
+                        radial-gradient(circle at bottom left, #1e1b4b, transparent);
+            text-align: center;
+            padding: 0 20px;
+        }
 
-/* HERO */
-.hero {
-  height: 90vh;
-  background: url('cover.jpg') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  position: relative;
-}
+        .profile-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+            animation: morph 8s ease-in-out infinite alternate;
+        }
 
-.hero * {
-  position: relative;
-  z-index: 1;
-}
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
 
-.profile-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid #38bdf8;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
 
-.hero h1 {
-  font-size: 40px;
-}
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
 
-/* SECTIONS */
-section {
-  padding: 70px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+        /* --- Sections Shared --- */
+        section { padding: 100px 8%; }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
 
-.section-title {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 30px;
-}
+        /* --- About --- */
+        #about {
+            background: var(--glass);
+            border-radius: 24px;
+            margin: 0 8% 100px;
+            border: 1px solid var(--glass-border);
+        }
 
-/* ABOUT COVER */
-#about {
-  background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c') center/cover no-repeat;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  color: white;
-  position: relative;
-}
+        /* --- Skills --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
 
-#about::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
+        .skill-pill {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-#about .content {
-  position: relative;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-}
+        .skill-pill:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
 
-/* SKILLS */
-.skills-section {
-  background: #fff;
-}
+        /* --- Design Cards --- */
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
+        .design-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 250px;
+            border: 1px solid var(--glass-border);
+        }
 
-.skills-container span {
-  background: #f1f5f9;
-  padding: 10px 14px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
+        .design-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
 
-.skills-container span:hover {
-  background: #2563eb;
-  color: white;
-}
+        .design-card:hover img { transform: scale(1.1); }
 
-/* DESIGN ROW */
-.design-gallery {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+        /* --- Project Cards --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.design-card {
-  width: 300px;
-  height: 220px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+        .project-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+            text-align: left;
+        }
 
-.design-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+        .project-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-10px);
+        }
 
-/* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-.project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
+        /* --- Video Section --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
 
-/* VIDEOS */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
+        .video-card {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
 
-.video-card {
-  background: white;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            color: #64748b;
+        }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0f172a;
-  color: white;
-}
-</style>
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            nav ul { display: none; } /* Simplified for demo */
+            section { padding: 60px 5%; }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <h2>Fasini</h2>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#designs">Designs</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#videos">Videos</a></li>
-  </ul>
+    <div class="logo">Fasini.dev</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#designs">Designs</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#videos">Videos</a></li>
+    </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <img src="profile.jpg" class="profile-img">
-  <h1>Fasini Beegum</h1>
-  <p>Full Stack Developer | Python | Django</p>
+    <div class="profile-container">
+        <img src="profile.jpg" class="profile-img" alt="Fasini">
+    </div>
+    <h1 class="reveal">Fasini Beegum</h1>
+    <p class="reveal">Crafting robust digital experiences with <span style="color: var(--primary)">Python & Django</span></p>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="content">
+<section id="about" class="reveal">
     <h2 class="section-title">About Me</h2>
-    <p>
-      I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
-      I started my career as a full-stack trainer where I guided learners in building real-world projects.
-      Later, I moved into development and built systems including Inventory Management, HR Management, and Learning Management Systems.
-      <br><br>
-      I work on both frontend and backend development along with IT support, troubleshooting, and media design.
-    </p>
-  </div>
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+        <p>I am an IT B.Tech graduate with a passion for building scalable web applications. Starting as a Full Stack Trainer, I honed my ability to simplify complex concepts—a skill I now apply to writing clean, maintainable code.</p>
+        <p style="margin-top: 20px; color: #94a3b8;">Expertise in Inventory Management, HR Systems, and LMS development.</p>
+    </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="skills-section">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="skills-container">
-    <span>Python</span>
-    <span>Django</span>
-    <span>REST API</span>
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>MySQL</span>
-    <span>Git</span>
-    <span>Photoshop</span>
-    <span>Canva</span>
-  </div>
+<section id="skills">
+    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="skills-container">
+        <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
+        <div class="skill-pill"><i class="fas fa-code"></i> Django</div>
+        <div class="skill-pill"><i class="fas fa-database"></i> MySQL</div>
+        <div class="skill-pill"><i class="fas fa-bolt"></i> REST API</div>
+        <div class="skill-pill"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="skill-pill"><i class="fab fa-git-alt"></i> Git</div>
+        <div class="skill-pill"><i class="fas fa-paint-brush"></i> Photoshop</div>
+    </div>
 </section>
 
-<!-- DESIGN WORKS -->
 <section id="designs">
-  <h2 class="section-title">Design Works</h2>
-
-  <div class="design-gallery">
-    <div class="design-card"><img src="work1.jpg"></div>
-    <div class="design-card"><img src="work2.jpg"></div>
-    <div class="design-card"><img src="work3.jpg"></div>
-  </div>
+    <h2 class="section-title">Design Showcase</h2>
+    <div class="design-gallery">
+        <div class="design-card reveal"><img src="work1.jpg" alt="Design 1"></div>
+        <div class="design-card reveal"><img src="work2.jpg" alt="Design 2"></div>
+        <div class="design-card reveal"><img src="work3.jpg" alt="Design 3"></div>
+    </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-  <h2 class="section-title">Projects</h2>
-
-  <div class="projects">
-    <div class="project-card">
-      <h3>HR Management System</h3>
-      <a href="https://www.hrgca.org/login/?next=/" target="_blank">View</a>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card reveal">
+            <i class="fas fa-users-cog" style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
+            <h3>HR Management</h3>
+            <p>A comprehensive platform for employee lifecycle management and payroll integration.</p>
+            <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">Explore Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="project-card reveal" style="transition-delay: 0.2s;">
+            <i class="fas fa-boxes" style="font-size: 2rem; color: var(--secondary); margin-bottom: 20px;"></i>
+            <h3>Inventory System</h3>
+            <p>Real-time tracking and automated stock alerts built with Django and MySQL.</p>
+            <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">Explore Project <i class="fas fa-arrow-right"></i></a>
+        </div>
     </div>
-
-    <div class="project-card">
-      <h3>Inventory System</h3>
-      <a href="https://www.gcainventory.ae/" target="_blank">View</a>
-    </div>
-  </div>
 </section>
 
-<!-- VIDEOS -->
 <section id="videos">
-  <h2 class="section-title">AI Advertising Videos</h2>
-
-  <div class="video-grid">
-
-    <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188">
-        <section></section>
-      </blockquote>
+    <h2 class="section-title">AI Advertising</h2>
+    <div class="video-grid">
+        <div class="video-card reveal">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188"><section></section></blockquote>
+        </div>
+        <div class="video-card reveal">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052"><section></section></blockquote>
+        </div>
     </div>
-
-    <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052">
-        <section></section>
-      </blockquote>
-    </div>
-
-    <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649">
-        <section></section>
-      </blockquote>
-    </div>
-
-  </div>
 </section>
 
 <footer>
-  <p>© 2026 Fasini Beegum</p>
+    <p>© 2026 Fasini Beegum • Built with Passion</p>
 </footer>
 
-<!-- SCRIPTS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 <script async src="https://www.tiktok.com/embed.js"></script>
 
 <script>
-/* Smooth scroll */
-$('nav a').click(function(e){
-  e.preventDefault();
-  const target = $(this).attr('href');
-  $('html, body').animate({
-    scrollTop: $(target).offset().top - 70
-  }, 700);
+$(document).ready(function() {
+    // 1. Smooth Scroll with Offset
+    $('nav ul li a').on('click', function(e) {
+        if (this.hash !== "") {
+            e.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 80
+            }, 800);
+        }
+    });
+
+    // 2. Active State on Scroll
+    $(window).scroll(function() {
+        var scrollDistance = $(window).scrollTop();
+        $('section').each(function(i) {
+            if ($(this).position().top <= scrollDistance + 100) {
+                $('nav ul li a.active').removeClass('active');
+                $('nav ul li a').eq(i).addClass('active');
+            }
+        });
+    }).scroll();
+
+    // 3. ScrollReveal Animations
+    ScrollReveal().reveal('.reveal', {
+        distance: '50px',
+        duration: 1000,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        interval: 200,
+        origin: 'bottom'
+    });
 });
 </script>
 
