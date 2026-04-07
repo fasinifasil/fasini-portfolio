@@ -12,11 +12,11 @@
         :root {
             --brand: #3b82f6;
             --brand-glow: rgba(59, 130, 246, 0.3);
-            --bg: #020617; /* Elite Deep Navy-Black */
+            --bg: #020617;
             --card: #0f172a;
             --text: #f8fafc;
             --text-muted: #94a3b8;
-            --glass: rgba(255, 255, 255, 0.02);
+            --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.06);
         }
 
@@ -24,11 +24,7 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 10px; }
-
-        /* --- Navigation: Modern Blur --- */
+        /* --- Navigation --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 8%; height: 75px; position: fixed; width: 100%; top: 0; z-index: 1000;
@@ -44,7 +40,7 @@
         nav ul li a:hover { color: var(--brand); }
 
         /* --- Hero Section --- */
-        .hero { height: 95vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        .hero { height: 90vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: url('page1.png') center/cover no-repeat; filter: brightness(0.15) saturate(0.5); z-index: -1; transform: scale(1.05);
@@ -58,7 +54,7 @@
         .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); position: relative; z-index: 2; }
         
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
         .hero p { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
 
         /* --- Global Sections --- */
@@ -67,7 +63,7 @@
         .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
         .accent { width: 40px; height: 4px; background: var(--brand); margin: 0 auto; border-radius: 10px; box-shadow: 0 0 15px var(--brand-glow); }
 
-        /* --- About Section (Bento Grid) --- */
+        /* --- About Bento Grid --- */
         .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
         .bento { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 24px; transition: 0.3s ease; }
         .bento:hover { border-color: rgba(59, 130, 246, 0.4); background: rgba(15, 23, 42, 0.8); }
@@ -93,19 +89,21 @@
 
         .timeline-item { position: relative; padding-left: 24px; padding-bottom: 20px; border-left: 1px solid var(--border); }
         .timeline-dot { position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; background: var(--brand); border-radius: 50%; }
+        .job-title { font-size: 0.9rem; font-weight: 700; }
+        .company { font-size: 0.8rem; color: var(--text-muted); }
+        .tech-used { display: block; font-size: 0.7rem; color: var(--brand); font-weight: 600; margin-top: 4px; }
 
-        /* --- Skill Tags --- */
+        /* --- Skills & Creative --- */
         .skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .skill-tag { background: var(--glass); border: 1px solid var(--border); padding: 10px 20px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
         .skill-tag:hover { background: var(--brand); transform: translateY(-3px); border-color: transparent; }
 
-        /* --- Design Portfolio --- */
         .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .design-item { height: 260px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; }
-        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
-        .design-item:hover img { transform: scale(1.05); opacity: 1; }
+        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: grayscale(20%); }
+        .design-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        /* --- Projects & Systems --- */
+        /* --- Projects & Videos --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
         .project-card { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 24px; transition: 0.4s; }
         .project-card:hover { border-color: var(--brand); transform: translateY(-8px); }
@@ -115,7 +113,6 @@
             text-decoration: none; font-weight: 700; font-size: 0.8rem; transition: 0.3s;
         }
 
-        /* --- Video Section --- */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .video-card { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); }
         .video-header { padding: 15px 20px; background: var(--glass); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
@@ -123,10 +120,10 @@
         .label-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
         .label-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
         .label-cyan { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+        
         .video-container { width: 100%; aspect-ratio: 9/16; background: #000; }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- Lightbox --- */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(2, 6, 23, 0.98); z-index: 9999; justify-content: center; align-items: center;
@@ -134,7 +131,7 @@
         #lightbox img { max-width: 90%; max-height: 85%; border-radius: 12px; border: 1px solid var(--border); }
         #lightbox.active { display: flex; }
 
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); }
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
 
         @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } nav ul { display: none; } }
     </style>
@@ -148,13 +145,13 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Stack</a></li>
-            <li><a href="#designs">Gallery</a></li>
+            <li><a href="#designs">Portfolio</a></li>
             <li><a href="#projects">Systems</a></li>
             <li><a href="#videos">Media</a></li>
         </ul>
     </nav>
 
-    <div class="hero">
+    <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="profile-container reveal">
@@ -164,40 +161,42 @@
             <h1 class="reveal">Fasini Beegum</h1>
             <p class="reveal">Architecting Scalable Solutions for Enterprise Demands</p>
         </div>
-    </div>
+    </section>
 
     <section id="about">
         <div class="about-grid">
             <div class="bento reveal">
-                <div class="status-badge"><span class="dot"></span> Available in Dubai, UAE</div>
+                <div class="status-badge"><span class="dot"></span> Based in Dubai, UAE</div>
                 <h2 style="margin-bottom: 20px;">Merging technical logic with <span class="text-gradient">refined scalability.</span></h2>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Full Stack Developer and IT Professional with 5+ years of cross-functional experience. I specialize in building business-critical platforms supporting 100+ concurrent users with zero downtime.
+                    Full Stack Developer and IT Professional with 5+ years of experience. I specialize in building business-critical platforms—from Payroll Engines to LMS Gateways—supporting 100+ concurrent users with zero downtime. 
                 </p>
                 <div class="stats-container">
                     <div class="stat-pill"><span class="stat-number">30+</span><span class="stat-label">Projects</span></div>
                     <div class="stat-pill"><span class="stat-number">100%</span><span class="stat-label">Delivery</span></div>
-                    <div class="stat-pill"><span class="stat-number">15%</span><span class="stat-label">Efficiency</span></div>
+                    <div class="stat-pill"><span class="stat-number">15%</span><span class="stat-label">Speed Opt</span></div>
                 </div>
             </div>
 
             <div class="bento reveal">
-                <h3 style="margin-bottom: 20px;"><i class="fas fa-history" style="color: var(--brand); margin-right: 10px;"></i> Experience</h3>
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-history" style="color: var(--brand); margin-right: 10px;"></i> Professional Journey</h3>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <p style="font-size: 0.9rem; font-weight: 700;">Full Stack Developer</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">Gulf Car Auction | Present</p>
-                    <span class="tech-used" style="font-size: 0.7rem; color: var(--brand); font-weight: 600;">Django • REST API • IT Support</span>
+                    <p class="job-title">Full Stack Developer</p>
+                    <p class="company">Gulf Car Auction | Present</p>
+                    <span class="tech-used">Django • REST API • Inventory Mgmt</span>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <p style="font-size: 0.9rem; font-weight: 700;">Website Developer</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">CSEI Dubai City | 2024</p>
+                    <p class="job-title">Website Developer</p>
+                    <p class="company">CSEI Dubai Academic City | 2024</p>
+                    <span class="tech-used">LMS Development • Data Management</span>
                 </div>
-                <div class="timeline-item" style="border:none; padding-bottom: 0;">
+                <div class="timeline-item" style="border:none;">
                     <div class="timeline-dot"></div>
-                    <p style="font-size: 0.9rem; font-weight: 700;">Senior Django Trainer</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">CbTech | 2023</p>
+                    <p class="job-title">Django Trainer</p>
+                    <p class="company">CbTech | 2023</p>
+                    <span class="tech-used">Mentorship • Fullstack Architecture</span>
                 </div>
             </div>
         </div>
@@ -205,7 +204,7 @@
 
     <section id="skills" style="background: rgba(255,255,255,0.01);">
         <div class="section-header reveal">
-            <h2>The Tech Stack</h2>
+            <h2>Technical Stack</h2>
             <div class="accent"></div>
         </div>
         <div class="skills-wrap">
@@ -240,13 +239,13 @@
         <div class="project-grid">
             <div class="project-card reveal">
                 <i class="fas fa-id-card-clip" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
-                <h3 style="font-weight: 700;">HR Management</h3>
+                <h3>HR Management</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Automated payroll and attendance tracking engine for enterprise scale.</p>
                 <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
             </div>
             <div class="project-card reveal">
                 <i class="fas fa-boxes-packing" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
-                <h3 style="font-weight: 700;">Inventory Hub</h3>
+                <h3>Inventory Hub</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Cloud-synced stock tracking with automated replenishment logic.</p>
                 <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
             </div>
@@ -255,7 +254,7 @@
 
     <section id="videos">
         <div class="section-header reveal">
-            <h2>Video Advertising</h2>
+            <h2>AI Advertising Production</h2>
             <div class="accent"></div>
         </div>
         <div class="video-grid">
@@ -275,7 +274,7 @@
     </section>
 
     <footer>
-        <p>© 2026 FASINI BEEGUM | FULLSTACK ENGINEER</p>
+        <p>© 2026 FASINI BEEGUM | DUBAI, UAE</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
