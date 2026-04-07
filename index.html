@@ -1,483 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FASINI BEEGUM | Fullstack Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASINI BEEGUM | Fullstack Developer</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --brand: #2563eb;
-            --brand-glow: rgba(37, 99, 235, 0.4);
-            --bg: #030712;
-            --card: #0f172a;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand: #3b82f6;
+            --brand-glow: rgba(59, 130, 246, 0.3);
+            --bg: #020617; /* Elite Deep Navy-Black */
+            --card: #0f172a;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.06);
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        /* --- Navigation --- */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 8%; height: 75px; position: fixed; width: 100%; top: 0; z-index: 1000;
-            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-        }
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 10px; }
 
-        .logo { font-weight: 800; font-size: 1rem; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
-        .logo span { color: var(--brand); font-weight: 400; border-left: 1px solid var(--border); margin-left: 10px; padding-left: 10px; font-size: 0.8rem; }
+        /* --- Navigation: Modern Blur --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 8%; height: 75px; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
 
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav ul li a:hover { color: var(--brand); }
+        .logo { font-weight: 800; font-size: 0.9rem; letter-spacing: 1.5px; color: var(--text); text-transform: uppercase; }
+        .logo span { color: var(--brand); font-weight: 400; border-left: 1px solid var(--border); margin-left: 10px; padding-left: 10px; font-size: 0.75rem; }
 
-        /* --- Hero Section --- */
-        .hero { height: 95vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('page1.png') center/cover no-repeat; filter: brightness(0.2); z-index: -1; transform: scale(1.1);
-        }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav ul li a:hover { color: var(--brand); }
 
-        .profile-container { width: 170px; height: 170px; margin: 0 auto 30px; position: relative; }
-        .profile-ring {
-            position: absolute; inset: -8px; border: 2px solid var(--brand); border-radius: 50%;
-            border-top-color: transparent; animation: spin 4s linear infinite;
-        }
-        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); position: relative; z-index: 2; }
-        
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -3px; line-height: 1; }
-        .hero p { font-size: 1.1rem; color: var(--text-muted); letter-spacing: 1px; }
+        /* --- Hero Section --- */
+        .hero { height: 95vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page1.png') center/cover no-repeat; filter: brightness(0.15) saturate(0.5); z-index: -1; transform: scale(1.05);
+        }
 
-        /* --- Global Sections --- */
-        section { padding: 120px 8%; position: relative; }
-        .section-header { margin-bottom: 60px; text-align: center; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
-        .accent { width: 40px; height: 4px; background: var(--brand); margin: 15px auto; border-radius: 10px; box-shadow: 0 0 15px var(--brand-glow); }
+        .profile-container { width: 160px; height: 160px; margin: 0 auto 30px; position: relative; }
+        .profile-ring {
+            position: absolute; inset: -6px; border: 2px solid var(--brand); border-radius: 50%;
+            border-top-color: transparent; border-bottom-color: transparent; animation: spin 6s linear infinite;
+        }
+        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); position: relative; z-index: 2; }
+        
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
 
-        /* --- Experience Bento --- */
-        .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
-        .bento { background: var(--card); border: 1px solid var(--border); padding: 45px; border-radius: 30px; }
-        .bento-blue { background: var(--brand); color: white; }
-        .stats { display: flex; gap: 40px; margin-top: 35px; border-top: 1px solid var(--border); padding-top: 25px; }
-        .stat-item h3 { font-size: 2rem; font-weight: 800; }
-        .stat-item p { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+        /* --- Global Sections --- */
+        section { padding: 100px 8%; position: relative; }
+        .section-header { margin-bottom: 50px; text-align: center; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+        .accent { width: 40px; height: 4px; background: var(--brand); margin: 0 auto; border-radius: 10px; box-shadow: 0 0 15px var(--brand-glow); }
 
-        /* --- Skills --- */
-        .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-        .skill-tag { 
-            background: var(--glass); border: 1px solid var(--border); padding: 12px 24px; 
-            border-radius: 15px; font-size: 0.85rem; font-weight: 600; transition: 0.4s;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .skill-tag:hover { background: var(--brand); transform: translateY(-5px); border-color: transparent; }
+        /* --- About Section (Bento Grid) --- */
+        .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
+        .bento { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 24px; transition: 0.3s ease; }
+        .bento:hover { border-color: rgba(59, 130, 246, 0.4); background: rgba(15, 23, 42, 0.8); }
 
-        /* --- Design Gallery --- */
-        .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .design-item { height: 300px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; }
-        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .design-item:hover img { transform: scale(1.1); filter: brightness(0.6); }
+        .text-gradient {
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+        }
 
-        /* --- Native Video Players --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background: var(--card); border-radius: 25px; overflow: hidden; border: 1px solid var(--border); }
-        .video-header { padding: 15px 20px; background: var(--glass); display: flex; justify-content: space-between; align-items: center; }
-        .video-label { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
-        .label-red { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .label-blue { background: rgba(37, 99, 235, 0.2); color: #60a5fa; }
-        .label-cyan { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
-        
-        .video-container { width: 100%; aspect-ratio: 9/16; background: #000; overflow: hidden;}
-        video { width: 100%; height: 100%; object-fit: cover; display: block;}
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa; padding: 6px 14px; border-radius: 30px; font-size: 0.7rem; font-weight: 700;
+            border: 1px solid rgba(59, 130, 246, 0.1); margin-bottom: 20px;
+        }
 
-        /* --- Lightbox --- */
-        #lightbox {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
-        }
-        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; }
-        #lightbox.active { display: flex; }
+        .dot { height: 8px; width: 8px; background-color: #22c55e; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); } 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
 
-        /* --- Projects --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .project-card { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 30px; transition: 0.4s; }
-        .project-card:hover { border-color: var(--brand); transform: translateY(-10px); }
-        
-        .project-link { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            margin-top: 25px; 
-            color: var(--text); 
-            background: var(--brand); 
-            padding: 10px 24px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.85rem; 
-            transition: 0.3s;
-        }
-        /* --- Bento Enhancements --- */
-.text-gradient {
-    background: linear-gradient(90deg, #3b82f6, #9333ea);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
+        .stats-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+        .stat-pill { background: var(--glass); border: 1px solid var(--border); padding: 15px 5px; border-radius: 16px; text-align: center; }
+        .stat-number { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; }
+        .stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(59, 130, 246, 0.1);
-    color: #60a5fa;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    margin-bottom: 20px;
-}
+        .timeline-item { position: relative; padding-left: 24px; padding-bottom: 20px; border-left: 1px solid var(--border); }
+        .timeline-dot { position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; background: var(--brand); border-radius: 50%; }
 
-.dot {
-    height: 8px;
-    width: 8px;
-    background-color: #22c55e;
-    border-radius: 50%;
-    display: inline-block;
-    animation: pulse 2s infinite;
-}
+        /* --- Skill Tags --- */
+        .skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .skill-tag { background: var(--glass); border: 1px solid var(--border); padding: 10px 20px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
+        .skill-tag:hover { background: var(--brand); transform: translateY(-3px); border-color: transparent; }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
+        /* --- Design Portfolio --- */
+        .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .design-item { height: 260px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; }
+        .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
+        .design-item:hover img { transform: scale(1.05); opacity: 1; }
 
-/* --- Stats Styling --- */
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 40px;
-}
+        /* --- Projects & Systems --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .project-card { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 24px; transition: 0.4s; }
+        .project-card:hover { border-color: var(--brand); transform: translateY(-8px); }
+        .project-link { 
+            display: inline-flex; align-items: center; gap: 10px; margin-top: 25px; 
+            color: #fff; background: var(--brand); padding: 10px 24px; border-radius: 12px; 
+            text-decoration: none; font-weight: 700; font-size: 0.8rem; transition: 0.3s;
+        }
 
-.stat-pill {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    padding: 20px 10px;
-    border-radius: 24px;
-    text-align: center;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        /* --- Video Section --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .video-card { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); }
+        .video-header { padding: 15px 20px; background: var(--glass); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .video-label { font-size: 0.65rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 1px; }
+        .label-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .label-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .label-cyan { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+        .video-container { width: 100%; aspect-ratio: 9/16; background: #000; }
+        video { width: 100%; height: 100%; object-fit: cover; }
 
-.stat-pill:hover {
-    background: rgba(59, 130, 246, 0.05);
-    border-color: var(--brand);
-    transform: translateY(-5px);
-}
+        /* --- Lightbox --- */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.98); z-index: 9999; justify-content: center; align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 12px; border: 1px solid var(--border); }
+        #lightbox.active { display: flex; }
 
-.stat-number {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #fff;
-}
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); }
 
-.stat-label {
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* --- Timeline & Tags --- */
-.tech-used {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--brand);
-    margin-top: 5px;
-    font-weight: 600;
-}
-
-.skill-category p {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin: 10px 0 5px 0;
-    letter-spacing: 1px;
-}
-
-.mini-tags span {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    transition: 0.2s;
-}
-
-.mini-tags span:hover {
-    background: var(--brand);
-    color: #fff;
-}
-
-.design-footer-modern {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-}
-        .project-link:hover { background: #1d4ed8; transform: scale(1.05); }
-
-        footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
-
-        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } nav ul { display: none; } }
-    </style>
+        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } nav ul { display: none; } }
+    </style>
 </head>
 <body>
 
-    <div id="lightbox"><img src="" alt="Work Detail"></div>
+    <div id="lightbox"><img src="" alt="Work Preview"></div>
 
-    <nav>
-        <div class="logo">FASINI BEEGUM <span>Fullstack Developer</span></div>
-        <ul>
-            <li><a href="#about">Experience</a></li>
-            <li><a href="#skills">Stack</a></li>
-            <li><a href="#designs">Gallery</a></li>
-            <li><a href="#projects">Systems</a></li>
-            <li><a href="#videos">Media</a></li>
-        </ul>
-    </nav>
+    <nav>
+        <div class="logo">FASINI BEEGUM <span>Fullstack Developer</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Stack</a></li>
+            <li><a href="#designs">Gallery</a></li>
+            <li><a href="#projects">Systems</a></li>
+            <li><a href="#videos">Media</a></li>
+        </ul>
+    </nav>
 
-    <div class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="profile-container reveal">
-                <div class="profile-ring"></div>
-                <img src="profile.jpeg" class="profile-img" alt="Fasini Beegum">
-            </div>
-            <h1 class="reveal">Fasini Beegum</h1>
-            <p class="reveal">Engineering Robust Scalable Systems with Python & Django</p>
-        </div>
-    </div>
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="profile-container reveal">
+                <div class="profile-ring"></div>
+                <img src="profile.jpeg" class="profile-img" alt="Fasini Beegum">
+            </div>
+            <h1 class="reveal">Fasini Beegum</h1>
+            <p class="reveal">Architecting Scalable Solutions for Enterprise Demands</p>
+        </div>
+    </div>
 
-<section id="about">
-    <div class="about-grid">
-        <div class="bento main-profile reveal">
-            <div class="bento-header">
-                <span class="status-badge"><span class="dot"></span> Available in Dubai, UAE</span>
-                <p class="bento-subtitle">Software Engineer</p>
-            </div>
+    <section id="about">
+        <div class="about-grid">
+            <div class="bento reveal">
+                <div class="status-badge"><span class="dot"></span> Available in Dubai, UAE</div>
+                <h2 style="margin-bottom: 20px;">Merging technical logic with <span class="text-gradient">refined scalability.</span></h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Full Stack Developer and IT Professional with 5+ years of cross-functional experience. I specialize in building business-critical platforms supporting 100+ concurrent users with zero downtime.
+                </p>
+                <div class="stats-container">
+                    <div class="stat-pill"><span class="stat-number">30+</span><span class="stat-label">Projects</span></div>
+                    <div class="stat-pill"><span class="stat-number">100%</span><span class="stat-label">Delivery</span></div>
+                    <div class="stat-pill"><span class="stat-number">15%</span><span class="stat-label">Efficiency</span></div>
+                </div>
+            </div>
 
-            <h2>Architecting <span class="text-gradient">Scalable Solutions</span> for Enterprise Demands.</h2>
+            <div class="bento reveal">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-history" style="color: var(--brand); margin-right: 10px;"></i> Experience</h3>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p style="font-size: 0.9rem; font-weight: 700;">Full Stack Developer</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Gulf Car Auction | Present</p>
+                    <span class="tech-used" style="font-size: 0.7rem; color: var(--brand); font-weight: 600;">Django • REST API • IT Support</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p style="font-size: 0.9rem; font-weight: 700;">Website Developer</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">CSEI Dubai City | 2024</p>
+                </div>
+                <div class="timeline-item" style="border:none; padding-bottom: 0;">
+                    <div class="timeline-dot"></div>
+                    <p style="font-size: 0.9rem; font-weight: 700;">Senior Django Trainer</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">CbTech | 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="bento-body">
-                <p>
-                    Full Stack Developer & IT Professional with <strong>5+ years of cross-functional experience</strong>. 
-                    I specialize in building business-critical platforms—from <strong>Payroll Engines</strong> to <strong>LMS Gateways</strong>—supporting 100+ concurrent users with zero downtime.
-                </p>
-                <p>
-                    My approach combines the logic of <strong>Python/Django</strong> with the aesthetics of modern UI design, ensuring every deployment is high-performing, secure, and user-centric.
-                </p>
-            </div>
+    <section id="skills" style="background: rgba(255,255,255,0.01);">
+        <div class="section-header reveal">
+            <h2>The Tech Stack</h2>
+            <div class="accent"></div>
+        </div>
+        <div class="skills-wrap">
+            <div class="skill-tag reveal"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
+            <div class="skill-tag reveal"><i class="fas fa-server" style="color:#092e20"></i> Django</div>
+            <div class="skill-tag reveal"><i class="fas fa-database" style="color:#00758f"></i> MySQL</div>
+            <div class="skill-tag reveal"><i class="fas fa-bolt" style="color:#f7df1e"></i> REST APIs</div>
+            <div class="skill-tag reveal"><i class="fab fa-js" style="color:#f0db4f"></i> JavaScript</div>
+            <div class="skill-tag reveal"><i class="fab fa-git-alt" style="color:#f1502f"></i> Git</div>
+            <div class="skill-tag reveal"><i class="fas fa-palette" style="color:#31a8ff"></i> Photoshop</div>
+            <div class="skill-tag reveal"><i class="fas fa-film" style="color:#ff0050"></i> AI Video</div>
+        </div>
+    </section>
 
-            <div class="stats-container">
-                <div class="stat-pill">
-                    <span class="stat-number">30+</span>
-                    <span class="stat-label">Projects Delivered</span>
-                </div>
-                <div class="stat-pill">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Completion Rate</span>
-                </div>
-                <div class="stat-pill">
-                    <span class="stat-number">15%</span>
-                    <span class="stat-label">Load Speed Boost</span>
-                </div>
-            </div>
-        </div>
+    <section id="designs">
+        <div class="section-header reveal">
+            <h2>Creative Design</h2>
+            <div class="accent"></div>
+        </div>
+        <div class="design-grid">
+            <div class="design-item reveal"><img src="work1.jpg" alt="Design 1"></div>
+            <div class="design-item reveal"><img src="work2.jpg" alt="Design 2"></div>
+            <div class="design-item reveal"><img src="work3.jpg" alt="Design 3"></div>
+        </div>
+    </section>
 
-        <div class="bento-sidebar">
-            
-            <div class="bento experience-card reveal">
-                <h3><i class="fas fa-history"></i> Professional Journey</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <p class="job-title">Full Stack Developer</p>
-                            <p class="company">Gulf Car Auction <span class="date">Present</span></p>
-                            <span class="tech-used">Django • REST API • Sys-Support</span>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <p class="job-title">Website Developer</p>
-                            <p class="company">CSEI Dubai City <span class="date">2024</span></p>
-                            <span class="tech-used">LMS • Data Mgmt</span>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <p class="job-title">Senior Django Trainer</p>
-                            <p class="company">CbTech <span class="date">2023</span></p>
-                            <span class="tech-used">Mentorship • 30+ Projects</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="projects">
+        <div class="section-header reveal">
+            <h2>Enterprise Systems</h2>
+            <div class="accent"></div>
+        </div>
+        <div class="project-grid">
+            <div class="project-card reveal">
+                <i class="fas fa-id-card-clip" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
+                <h3 style="font-weight: 700;">HR Management</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Automated payroll and attendance tracking engine for enterprise scale.</p>
+                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="project-card reveal">
+                <i class="fas fa-boxes-packing" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
+                <h3 style="font-weight: 700;">Inventory Hub</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Cloud-synced stock tracking with automated replenishment logic.</p>
+                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
 
-            <div class="bento bento-blue skills-snapshot reveal">
-                <div class="skills-icon-header">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Tech Ecosystem</h3>
-                </div>
-                <div class="skill-category">
-                    <p>Backend & Data</p>
-                    <div class="mini-tags">
-                        <span>Python</span><span>Django</span><span>PostgreSQL</span><span>MySQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <p>Frontend & Tools</p>
-                    <div class="mini-tags">
-                        <span>React</span><span>JS</span><span>Git</span><span>Tailwind</span>
-                    </div>
-                </div>
-                <div class="design-footer-modern">
-                    <span><i class="fas fa-pen-fancy"></i> PS • Canva • Shopify</span>
-                </div>
-            </div>
+    <section id="videos">
+        <div class="section-header reveal">
+            <h2>Video Advertising</h2>
+            <div class="accent"></div>
+        </div>
+        <div class="video-grid">
+            <div class="video-card reveal">
+                <div class="video-header"><span style="font-weight:700">#01</span><span class="video-label label-red">WITHOUT ASL</span></div>
+                <div class="video-container"><video controls playsinline preload="metadata"><source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v1.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-header"><span style="font-weight:700">#02</span><span class="video-label label-blue">WITH ASL</span></div>
+                <div class="video-container"><video controls playsinline preload="metadata"><source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v2.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-header"><span style="font-weight:700">#03</span><span class="video-label label-cyan">USA TO UAE</span></div>
+                <div class="video-container"><video controls playsinline preload="metadata"><source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v3.mp4" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </section>
 
-        </div>
-    </div>
-</section>
+    <footer>
+        <p>© 2026 FASINI BEEGUM | FULLSTACK ENGINEER</p>
+    </footer>
 
-    <section id="skills" style="background: linear-gradient(to bottom, var(--bg), #050a18);">
-        <div class="section-header reveal">
-            <h2>The Tech Stack</h2>
-            <div class="accent"></div>
-        </div>
-        <div class="skills-wrap">
-            <div class="skill-tag reveal"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
-            <div class="skill-tag reveal"><i class="fas fa-server" style="color:#092e20"></i> Django</div>
-            <div class="skill-tag reveal"><i class="fas fa-database" style="color:#00758f"></i> MySQL</div>
-            <div class="skill-tag reveal"><i class="fas fa-bolt" style="color:#f7df1e"></i> REST APIs</div>
-            <div class="skill-tag reveal"><i class="fab fa-js" style="color:#f0db4f"></i> JavaScript</div>
-            <div class="skill-tag reveal"><i class="fab fa-git-alt" style="color:#f1502f"></i> Git</div>
-            <div class="skill-tag reveal"><i class="fas fa-palette" style="color:#31a8ff"></i> Photoshop</div>
-            <div class="skill-tag reveal"><i class="fas fa-film" style="color:#ff0050"></i> AI Video</div>
-            <div class="skill-tag reveal"> <i class="fas fa-pen-nib" style="color:#00c4cc"></i> Canva</div>
-        </div>
-    </section>
-
-    <section id="designs">
-        <div class="section-header reveal">
-            <h2>Creative Design</h2>
-            <div class="accent"></div>
-        </div>
-        <div class="design-grid">
-            <div class="design-item reveal"><img src="work1.jpg" alt="Work 1"></div>
-            <div class="design-item reveal"><img src="work2.jpg" alt="Work 2"></div>
-            <div class="design-item reveal"><img src="work3.jpg" alt="Work 3"></div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-header reveal">
-            <h2>Enterprise Systems</h2>
-            <div class="accent"></div>
-        </div>
-        <div class="project-grid">
-            <div class="project-card reveal">
-                <i class="fas fa-id-card-clip" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
-                <h3>HR Management</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Automated payroll and attendance tracking for enterprise teams.</p>
-                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="project-card reveal">
-                <i class="fas fa-boxes-packing" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
-                <h3>Inventory Hub</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Cloud-synced stock tracking with automated replenishment logic.</p>
-                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">CHECK SYSTEM <i class="fas fa-external-link-alt"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="videos">
-        <div class="section-header reveal">
-            <h2>Video Advertising</h2>
-            <div class="accent"></div>
-        </div>
-        <div class="video-grid">
-            <div class="video-card reveal">
-                <div class="video-header">
-                    <span style="font-weight:700">#01</span>
-                    <span class="video-label label-red">WITHOUT ASL</span>
-                </div>
-                <div class="video-container">
-                    <video controls>
-  <source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v1.mp4" type="video/mp4">
-</video>
-                </div>
-            </div>
-            <div class="video-card reveal">
-                <div class="video-header">
-                    <span style="font-weight:700">#02</span>
-                    <span class="video-label label-blue">WITH ASL</span>
-                </div>
-                <div class="video-container">
-                    <video controls>
-  <source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v2.mp4" type="video/mp4">
-</video>
-                </div>
-            </div>
-            <div class="video-card reveal">
-                <div class="video-header">
-                    <span style="font-weight:700">#03</span>
-                    <span class="video-label label-cyan">USA TO UAE</span>
-                </div>
-                <div class="video-container">
-                   <video controls>
-  <source src="https://github.com/fasinifasil/fasini-portfolio/blob/main/v3.mp4" type="video/mp4">
-</video>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 FASINI BEEGUM | FULLSTACK ENGINEER</p>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        $(document).ready(function() {
-            // ScrollReveal init
-            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, interval: 120, origin: 'bottom' });
-
-            // Lightbox functionality
-            $('.design-item').on('click', function() {
-                const src = $(this).find('img').attr('src');
-                $('#lightbox img').attr('src', src);
-                $('#lightbox').addClass('active');
-            });
-            $('#lightbox').on('click', function() { $(this).removeClass('active'); });
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        $(document).ready(function() {
+            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, interval: 120, origin: 'bottom' });
+            $('.design-item').on('click', function() {
+                const src = $(this).find('img').attr('src');
+                $('#lightbox img').attr('src', src);
+                $('#lightbox').addClass('active');
+            });
+            $('#lightbox').on('click', function() { $(this).removeClass('active'); });
+        });
+    </script>
 </body>
 </html>
-rewrite full code make more professional black body change make more modern 
