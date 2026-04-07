@@ -13,12 +13,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
 }
 
 body {
   background: #f4f6fb;
-  color: #222;
 }
 
 /* NAV */
@@ -46,10 +44,6 @@ nav ul li a {
   text-decoration: none;
 }
 
-nav ul li a:hover {
-  color: #38bdf8;
-}
-
 /* HERO */
 .hero {
   height: 90vh;
@@ -67,18 +61,8 @@ nav ul li a:hover {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  border: 4px solid #38bdf8;
   margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-size: 40px;
-}
-
-.hero p {
-  opacity: 0.8;
-  max-width: 800px;
-  margin-top: 10px;
+  border: 4px solid #38bdf8;
 }
 
 /* SECTIONS */
@@ -90,64 +74,21 @@ section {
 
 .section-title {
   text-align: center;
-  font-size: 32px;
-  margin-bottom: 40px;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
-.section-title::after {
-  content: "";
-  width: 60px;
-  height: 3px;
-  background: #38bdf8;
-  display: block;
-  margin: 10px auto;
+/* ABOUT */
+.about p {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.8;
 }
 
-/* CARDS */
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-/* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* SKILLS SECTION */
+/* SKILLS */
 .skills-section {
-  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') no-repeat center/cover;
-  padding: 80px 20px;
+  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') center/cover;
   position: relative;
 }
 
@@ -160,62 +101,69 @@ section {
 
 .skills-section > * {
   position: relative;
-  z-index: 1;
 }
 
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .skills-container span {
   background: white;
-  padding: 10px 16px;
-  border-radius: 25px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  padding: 10px 14px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .skills-container span:hover {
-  transform: translateY(-5px) scale(1.05);
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  background: #2563eb;
   color: white;
+  transform: translateY(-5px);
 }
 
-/* DESIGN GALLERY */
-.design-gallery {
+/* PROJECTS */
+.projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 40px;
 }
 
-.design-card {
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* VIDEOS */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
   background: white;
   padding: 10px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   text-align: center;
 }
 
-.design-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.design-card:hover {
-  transform: translateY(-8px);
-}
-
-/* CONTACT */
-.contact {
-  text-align: center;
-  line-height: 1.8;
+.video-card p {
+  margin-top: 8px;
+  font-weight: 500;
 }
 
 /* FOOTER */
@@ -236,9 +184,8 @@ footer {
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#videos">Videos</a></li>
   </ul>
 </nav>
 
@@ -246,20 +193,20 @@ footer {
 <div class="hero">
   <img src="profile.jpg" class="profile-img">
   <h1>Fasini Beegum</h1>
-  <p>Full Stack Developer | Django | Python | Web & IT Solutions</p>
+  <p>Full Stack Developer | Django | Python | IT & Digital Solutions</p>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="about">
   <h2 class="section-title">About Me</h2>
 
-  <p style="max-width:850px; margin:auto; text-align:center;">
+  <p>
     I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
     I began my career as a full-stack trainer, teaching over 35 students daily and helping them build real-world project skills.
-    Later, I transitioned into full-time development, where I independently built systems including an Inventory Management System, HR Management System, and a Learning Management System with online classes and exams.
+    Later, I transitioned into full-time development, where I independently created systems including Inventory Management, HR Management, and Learning Management Systems with online classes and exams.
     <br><br>
     I am skilled in both frontend and backend development, and I also handle website updates, IT support, troubleshooting, social media management, and media design.
-    I enjoy learning new technologies and continuously exploring different areas of IT to deliver practical and effective solutions.
+    I enjoy learning new technologies and continuously improving my skills to deliver practical and efficient solutions.
   </p>
 </section>
 
@@ -284,40 +231,6 @@ footer {
     <span>Social Media Design</span>
     <span>Banner Design</span>
   </div>
-
-  <div class="design-gallery">
-    <div class="design-card">
-      <img src="design1.jpg">
-      <p>Design Sample</p>
-    </div>
-
-    <div class="design-card">
-      <img src="design2.jpg">
-      <p>Banner Design</p>
-    </div>
-
-    <div class="design-card">
-      <img src="design3.jpg">
-      <p>Social Media Post</p>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <h2 class="section-title">Experience</h2>
-
-  <div class="card">
-    <h3>Full Stack Developer</h3>
-    <p>Gulf Car Auction | Dec 2024 – Present</p>
-    <p>Developed HR and Inventory systems and supported enterprise users.</p>
-  </div>
-
-  <div class="card">
-    <h3>Website Developer</h3>
-    <p>CSEI Dubai | Aug 2024 – Nov 2024</p>
-    <p>Built and maintained LMS platform.</p>
-  </div>
 </section>
 
 <!-- PROJECTS -->
@@ -325,32 +238,54 @@ footer {
   <h2 class="section-title">Projects</h2>
 
   <div class="projects">
-
     <div class="project-card">
       <h3>HR Management System</h3>
-      <a href="https://www.hrgca.org/login/?next=/" target="_blank">Live Demo</a>
+      <a href="https://www.hrgca.org/login/?next=/" target="_blank">View Project</a>
     </div>
 
     <div class="project-card">
       <h3>Inventory Management System</h3>
-      <a href="https://www.gcainventory.ae/" target="_blank">Live Demo</a>
+      <a href="https://www.gcainventory.ae/" target="_blank">View Project</a>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">Contact</h2>
-  <div class="contact">
-    <p>Email: itsmefasini@gmail.com</p>
-    <p>Phone: +971 558203058</p>
+<!-- VIDEOS (TIKTOK) -->
+<section id="videos">
+  <h2 class="section-title">AI / Advertising Videos</h2>
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188" data-video-id="7611479757775015188">
+        <section></section>
+      </blockquote>
+      <p>Advertising Video 1</p>
+    </div>
+
+    <div class="video-card">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052" data-video-id="7600392701284044052">
+        <section></section>
+      </blockquote>
+      <p>Advertising Video 2</p>
+    </div>
+
+    <div class="video-card">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649" data-video-id="7591011294539451649">
+        <section></section>
+      </blockquote>
+      <p>Advertising Video 3</p>
+    </div>
+
   </div>
 </section>
 
 <footer>
   <p>© 2026 Fasini Beegum</p>
 </footer>
+
+<!-- TikTok Script -->
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 </body>
 </html>
