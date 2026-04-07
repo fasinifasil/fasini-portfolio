@@ -24,6 +24,10 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 10px; }
+
         /* --- Navigation --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
@@ -80,20 +84,13 @@
         }
         .skill-tag:hover { background: var(--brand); transform: translateY(-5px); border-color: transparent; }
 
-        /* --- Design Showcase + Lightbox --- */
+        /* --- Design Gallery --- */
         .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .design-item { height: 300px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; }
         .design-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .design-item:hover img { transform: scale(1.08); filter: brightness(0.6); }
+        .design-item:hover img { transform: scale(1.1); filter: brightness(0.6); }
 
-        #lightbox {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
-        }
-        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
-        #lightbox.active { display: flex; }
-
-        /* --- Video Section --- */
+        /* --- Native Video Players --- */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .video-card { background: var(--card); border-radius: 25px; overflow: hidden; border: 1px solid var(--border); }
         .video-header { padding: 15px 20px; background: var(--glass); display: flex; justify-content: space-between; align-items: center; }
@@ -103,6 +100,14 @@
         .label-cyan { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
         .video-container { width: 100%; aspect-ratio: 9/16; background: #000; }
         video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- Lightbox --- */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; }
+        #lightbox.active { display: flex; }
 
         /* --- Projects --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
@@ -117,7 +122,7 @@
 </head>
 <body>
 
-    <div id="lightbox"><img src="" alt="Gallery Preview"></div>
+    <div id="lightbox"><img src="" alt="Work Detail"></div>
 
     <nav>
         <div class="logo">FASINI BEEGUM <span>Fullstack Developer</span></div>
@@ -138,32 +143,32 @@
                 <img src="profile.jpg" class="profile-img" alt="Fasini Beegum">
             </div>
             <h1 class="reveal">Fasini Beegum</h1>
-            <p class="reveal">Building Scalable Digital Infrastructure with Python & Django</p>
+            <p class="reveal">Engineering Robust Scalable Systems with Python & Django</p>
         </div>
     </div>
 
     <section id="about">
         <div class="about-grid">
             <div class="bento reveal">
-                <p style="text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: var(--brand); margin-bottom: 15px; letter-spacing: 2px;">Professional Summary</p>
-                <h2 style="margin-bottom: 20px;">Merging technical logic with enterprise scalability.</h2>
-                <p style="color: var(--text-muted);">IT B.Tech graduate with deep expertise in full-stack architecture. I build high-performance HRMS and Inventory systems with a focus on clean, maintainable code.</p>
+                <p style="text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: var(--brand); margin-bottom: 15px; letter-spacing: 2px;">Technical Journey</p>
+                <h2 style="margin-bottom: 20px;">Merging high-level logic with production scalability.</h2>
+                <p style="color: var(--text-muted);">IT B.Tech graduate with extensive experience in full-stack architecture. Developed high-performance HRMS and Inventory systems with a focus on data integrity and user experience.</p>
                 <div class="stats">
-                    <div class="stat-item"><h3>4+</h3><p>Years Tech</p></div>
+                    <div class="stat-item"><h3>4+</h3><p>Years Exp</p></div>
                     <div class="stat-item"><h3>15+</h3><p>Live Proj</p></div>
                 </div>
             </div>
             <div class="bento bento-blue reveal">
-                <i class="fas fa-microchip" style="font-size: 3rem; margin-bottom: 25px; opacity: 0.5;"></i>
-                <h3 style="margin-bottom: 15px;">Engineering Strategy</h3>
-                <p>Enterprise Application Development, Database Optimization, and High-Performance Backend Architectures.</p>
+                <i class="fas fa-terminal" style="font-size: 3rem; margin-bottom: 25px; opacity: 0.5;"></i>
+                <h3 style="margin-bottom: 15px;">Software Strategy</h3>
+                <p>Specializing in Backend Architectures, REST API Development, and Database Optimization for Enterprise Tools.</p>
             </div>
         </div>
     </section>
 
     <section id="skills" style="background: linear-gradient(to bottom, var(--bg), #050a18);">
         <div class="section-header reveal">
-            <h2>Technical Stack</h2>
+            <h2>The Tech Stack</h2>
             <div class="accent"></div>
         </div>
         <div class="skills-wrap">
@@ -172,46 +177,48 @@
             <div class="skill-tag reveal"><i class="fas fa-database" style="color:#00758f"></i> MySQL</div>
             <div class="skill-tag reveal"><i class="fas fa-bolt" style="color:#f7df1e"></i> REST APIs</div>
             <div class="skill-tag reveal"><i class="fab fa-js" style="color:#f0db4f"></i> JavaScript</div>
-            <div class="skill-tag reveal"><i class="fab fa-git" style="color:#f1502f"></i> Git</div>
+            <div class="skill-tag reveal"><i class="fab fa-git-alt" style="color:#f1502f"></i> Git</div>
+            <div class="skill-tag reveal"><i class="fas fa-palette" style="color:#31a8ff"></i> Photoshop</div>
+            <div class="skill-tag reveal"><i class="fas fa-film" style="color:#ff0050"></i> AI Video</div>
         </div>
     </section>
 
     <section id="designs">
         <div class="section-header reveal">
-            <h2>Creative Direction</h2>
+            <h2>Creative Design</h2>
             <div class="accent"></div>
         </div>
         <div class="design-grid">
-            <div class="design-item reveal"><img src="work1.jpg" alt="Design 1"></div>
-            <div class="design-item reveal"><img src="work2.jpg" alt="Design 2"></div>
-            <div class="design-item reveal"><img src="work3.jpg" alt="Design 3"></div>
+            <div class="design-item reveal"><img src="work1.jpg" alt="Work 1"></div>
+            <div class="design-item reveal"><img src="work2.jpg" alt="Work 2"></div>
+            <div class="design-item reveal"><img src="work3.jpg" alt="Work 3"></div>
         </div>
     </section>
 
     <section id="projects">
         <div class="section-header reveal">
-            <h2>Core Systems</h2>
+            <h2>Enterprise Systems</h2>
             <div class="accent"></div>
         </div>
         <div class="project-grid">
             <div class="project-card reveal">
-                <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
+                <i class="fas fa-id-card-clip" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
                 <h3>HR Management</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">End-to-end employee lifecycle and payroll automation portal.</p>
-                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">DEPLOYED VERSION <i class="fas fa-arrow-right"></i></a>
+                <p style="color: var(--text-muted); margin-top: 10px;">Automated payroll and attendance tracking for enterprise teams.</p>
+                <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">LATEST VERSION <i class="fas fa-external-link-alt"></i></a>
             </div>
             <div class="project-card reveal">
-                <i class="fas fa-warehouse" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
+                <i class="fas fa-boxes-packing" style="font-size: 2rem; color: var(--brand); margin-bottom: 20px; display:block;"></i>
                 <h3>Inventory Hub</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Real-time stock management and cloud-synced asset tracking.</p>
-                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">DEPLOYED VERSION <i class="fas fa-arrow-right"></i></a>
+                <p style="color: var(--text-muted); margin-top: 10px;">Cloud-synced stock tracking with automated replenishment logic.</p>
+                <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">LATEST VERSION <i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
     </section>
 
     <section id="videos">
         <div class="section-header reveal">
-            <h2>Production Showcase</h2>
+            <h2>Video Advertising</h2>
             <div class="accent"></div>
         </div>
         <div class="video-grid">
@@ -238,9 +245,10 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         $(document).ready(function() {
+            // ScrollReveal init
             ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, interval: 120, origin: 'bottom' });
-            
-            // Image Popup Logic
+
+            // Lightbox functionality
             $('.design-item').on('click', function() {
                 const src = $(this).find('img').attr('src');
                 $('#lightbox img').attr('src', src);
