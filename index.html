@@ -28,6 +28,7 @@ nav {
   color: white;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 nav ul {
@@ -47,22 +48,46 @@ nav ul li a {
 /* HERO */
 .hero {
   height: 90vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: url('cover.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
+  position: relative;
   padding: 20px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
 }
 
 .profile-img {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  object-fit: cover;
   border: 4px solid #38bdf8;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin-top: 10px;
+  opacity: 0.9;
 }
 
 /* SECTIONS */
@@ -122,6 +147,32 @@ section {
   background: #2563eb;
   color: white;
   transform: translateY(-5px);
+}
+
+/* DESIGN GALLERY */
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.design-card {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.design-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.design-card:hover {
+  transform: translateY(-8px);
 }
 
 /* PROJECTS */
@@ -184,6 +235,7 @@ footer {
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#designs">Designs</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#videos">Videos</a></li>
   </ul>
@@ -206,7 +258,7 @@ footer {
     Later, I transitioned into full-time development, where I independently created systems including Inventory Management, HR Management, and Learning Management Systems with online classes and exams.
     <br><br>
     I am skilled in both frontend and backend development, and I also handle website updates, IT support, troubleshooting, social media management, and media design.
-    I enjoy learning new technologies and continuously improving my skills to deliver practical and efficient solutions.
+    I enjoy learning new technologies and continuously improving my skills to deliver practical and effective solutions.
   </p>
 </section>
 
@@ -229,7 +281,28 @@ footer {
     <span>Canva</span>
     <span>Logo Design</span>
     <span>Social Media Design</span>
-    <span>Banner Design</span>
+  </div>
+</section>
+
+<!-- DESIGN WORKS -->
+<section id="designs">
+  <h2 class="section-title">Design Works</h2>
+
+  <div class="design-gallery">
+    <div class="design-card">
+      <img src="design1.jpg">
+      <p>Design 1</p>
+    </div>
+
+    <div class="design-card">
+      <img src="design2.jpg">
+      <p>Design 2</p>
+    </div>
+
+    <div class="design-card">
+      <img src="design3.jpg">
+      <p>Design 3</p>
+    </div>
   </div>
 </section>
 
@@ -250,9 +323,9 @@ footer {
   </div>
 </section>
 
-<!-- VIDEOS (TIKTOK) -->
+<!-- VIDEOS -->
 <section id="videos">
-  <h2 class="section-title">AI / Advertising Videos</h2>
+  <h2 class="section-title">AI Advertising Videos</h2>
 
   <div class="video-grid">
 
@@ -260,21 +333,21 @@ footer {
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188" data-video-id="7611479757775015188">
         <section></section>
       </blockquote>
-      <p>Advertising Video 1</p>
+      <p>Video 1</p>
     </div>
 
     <div class="video-card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052" data-video-id="7600392701284044052">
         <section></section>
       </blockquote>
-      <p>Advertising Video 2</p>
+      <p>Video 2</p>
     </div>
 
     <div class="video-card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649" data-video-id="7591011294539451649">
         <section></section>
       </blockquote>
-      <p>Advertising Video 3</p>
+      <p>Video 3</p>
     </div>
 
   </div>
@@ -284,7 +357,6 @@ footer {
   <p>© 2026 Fasini Beegum</p>
 </footer>
 
-<!-- TikTok Script -->
 <script async src="https://www.tiktok.com/embed.js"></script>
 
 </body>
