@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fasini Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: #0f172a;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+nav h2 {
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #0f172a, #1e293b);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+}
+
+/* Cards */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills span {
+  background: #0f172a;
+  color: white;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0f172a;
+  color: white;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>Fasini</h2>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Hi, I'm Fasini 👋</h1>
+  <p>Full Stack Django Developer</p>
+</div>
+
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    Experienced IT professional with expertise in web development, system support, and training.
+    Skilled in building scalable Django applications and managing real-world systems.
+  </p>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="projects">
+    <div class="card">
+      <h3>Learning Management System</h3>
+      <p>Django-based system for managing courses and students.</p>
+      <a href="https://github.com/YOURUSERNAME/learning-management-system" target="_blank">View Project</a>
+    </div>
+
+    <div class="card">
+      <h3>Inventory Management System</h3>
+      <p>Tracks stock, products, and inventory operations.</p>
+      <a href="https://github.com/YOURUSERNAME/inventory-management-system" target="_blank">View Project</a>
+    </div>
+
+    <div class="card">
+      <h3>HR Management System</h3>
+      <p>Manages employees, payroll, and HR workflows.</p>
+      <a href="https://github.com/YOURUSERNAME/hr-management-system" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills">
+    <span>Python</span>
+    <span>Django</span>
+    <span>REST API</span>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>MySQL</span>
+    <span>PostgreSQL</span>
+    <span>Git</span>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact">
+    <p>Email: your-email@gmail.com</p>
+    <p>Phone: +971 XXXXXXXX</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Fasini Beegum</p>
+</footer>
+
+</body>
+</html>
