@@ -21,7 +21,7 @@ body {
   color: #222;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
@@ -60,6 +60,7 @@ nav ul li a:hover {
   align-items: center;
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 .profile-img {
@@ -76,6 +77,8 @@ nav ul li a:hover {
 
 .hero p {
   opacity: 0.8;
+  max-width: 800px;
+  margin-top: 10px;
 }
 
 /* SECTIONS */
@@ -141,17 +144,13 @@ section {
   font-weight: 500;
 }
 
-/* ========================= */
-/* SKILLS DASHBOARD SECTION  */
-/* ========================= */
-
+/* SKILLS SECTION */
 .skills-section {
-  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') no-repeat center center/cover;
+  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') no-repeat center/cover;
   padding: 80px 20px;
   position: relative;
 }
 
-/* overlay */
 .skills-section::before {
   content: "";
   position: absolute;
@@ -159,7 +158,6 @@ section {
   background: rgba(255,255,255,0.85);
 }
 
-/* content above overlay */
 .skills-section > * {
   position: relative;
   z-index: 1;
@@ -169,27 +167,49 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
+  gap: 12px;
 }
 
 .skills-container span {
   background: white;
-  padding: 12px 18px;
+  padding: 10px 16px;
   border-radius: 25px;
-  font-size: 14px;
-  font-weight: 500;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
+  transition: 0.3s;
   cursor: pointer;
 }
 
-/* hover effect */
 .skills-container span:hover {
-  transform: translateY(-6px) scale(1.08);
+  transform: translateY(-5px) scale(1.05);
   background: linear-gradient(135deg, #38bdf8, #2563eb);
   color: white;
-  box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+}
+
+/* DESIGN GALLERY */
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.design-card {
+  background: white;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.design-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.design-card:hover {
+  transform: translateY(-8px);
 }
 
 /* CONTACT */
@@ -204,27 +224,6 @@ footer {
   padding: 20px;
   background: #0f172a;
   color: white;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;
-    margin-top: 10px;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
 }
 </style>
 </head>
@@ -247,19 +246,24 @@ footer {
 <div class="hero">
   <img src="profile.jpg" class="profile-img">
   <h1>Fasini Beegum</h1>
-  <p>Full Stack Django Developer</p>
-  <p>Dubai, UAE</p>
+  <p>Full Stack Developer | Django | Python | Web & IT Solutions</p>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
   <h2 class="section-title">About Me</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">
-    Full Stack Developer with 5+ years of experience in Django, REST APIs, deployment, and enterprise system development.
+
+  <p style="max-width:850px; margin:auto; text-align:center;">
+    I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
+    I began my career as a full-stack trainer, teaching over 35 students daily and helping them build real-world project skills.
+    Later, I transitioned into full-time development, where I independently built systems including an Inventory Management System, HR Management System, and a Learning Management System with online classes and exams.
+    <br><br>
+    I am skilled in both frontend and backend development, and I also handle website updates, IT support, troubleshooting, social media management, and media design.
+    I enjoy learning new technologies and continuously exploring different areas of IT to deliver practical and effective solutions.
   </p>
 </section>
 
-<!-- SKILLS (UPDATED DASHBOARD STYLE) -->
+<!-- SKILLS -->
 <section id="skills" class="skills-section">
   <h2 class="section-title">Skills</h2>
 
@@ -273,6 +277,29 @@ footer {
     <span>MySQL</span>
     <span>PostgreSQL</span>
     <span>Git</span>
+
+    <span>Photoshop</span>
+    <span>Canva</span>
+    <span>Logo Design</span>
+    <span>Social Media Design</span>
+    <span>Banner Design</span>
+  </div>
+
+  <div class="design-gallery">
+    <div class="design-card">
+      <img src="design1.jpg">
+      <p>Design Sample</p>
+    </div>
+
+    <div class="design-card">
+      <img src="design2.jpg">
+      <p>Banner Design</p>
+    </div>
+
+    <div class="design-card">
+      <img src="design3.jpg">
+      <p>Social Media Post</p>
+    </div>
   </div>
 </section>
 
@@ -283,13 +310,13 @@ footer {
   <div class="card">
     <h3>Full Stack Developer</h3>
     <p>Gulf Car Auction | Dec 2024 – Present</p>
-    <p>Developed HR, payroll, and inventory systems supporting 100+ users.</p>
+    <p>Developed HR and Inventory systems and supported enterprise users.</p>
   </div>
 
   <div class="card">
     <h3>Website Developer</h3>
     <p>CSEI Dubai | Aug 2024 – Nov 2024</p>
-    <p>Built LMS platform and improved system performance.</p>
+    <p>Built and maintained LMS platform.</p>
   </div>
 </section>
 
@@ -301,13 +328,11 @@ footer {
 
     <div class="project-card">
       <h3>HR Management System</h3>
-      <p>Employee, payroll, and attendance system.</p>
       <a href="https://www.hrgca.org/login/?next=/" target="_blank">Live Demo</a>
     </div>
 
     <div class="project-card">
       <h3>Inventory Management System</h3>
-      <p>Stock and product management system.</p>
       <a href="https://www.gcainventory.ae/" target="_blank">Live Demo</a>
     </div>
 
