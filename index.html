@@ -17,6 +17,7 @@
 
 body {
   background: #f4f6fb;
+  color: #111;
 }
 
 /* NAV */
@@ -43,6 +44,13 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+nav ul li a.active {
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  padding-bottom: 3px;
 }
 
 /* HERO */
@@ -56,7 +64,6 @@ nav ul li a {
   color: white;
   text-align: center;
   position: relative;
-  padding: 20px;
 }
 
 .hero::before {
@@ -75,19 +82,21 @@ nav ul li a {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  object-fit: cover;
   border: 4px solid #38bdf8;
+  object-fit: cover;
   margin-bottom: 20px;
 }
 
 .hero h1 {
   font-size: 40px;
+  animation: fadeDown 1s ease;
 }
 
 .hero p {
   max-width: 700px;
   margin-top: 10px;
   opacity: 0.9;
+  animation: fadeUp 1.2s ease;
 }
 
 /* SECTIONS */
@@ -106,8 +115,6 @@ section {
 /* ABOUT */
 .about p {
   text-align: center;
-  max-width: 900px;
-  margin: auto;
   line-height: 1.8;
 }
 
@@ -140,39 +147,42 @@ section {
   padding: 10px 14px;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  cursor: pointer;
   transition: 0.3s;
 }
 
 .skills-container span:hover {
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
   color: white;
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-/* DESIGN GALLERY */
+/* DESIGN (INSTAGRAM STYLE VERTICAL) */
 .design-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
 }
 
 .design-card {
+  width: 100%;
+  max-width: 500px;
   background: white;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  text-align: center;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.4s;
 }
 
 .design-card img {
   width: 100%;
-  height: 180px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .design-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.02);
 }
 
 /* PROJECTS */
@@ -188,6 +198,11 @@ section {
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   text-align: center;
+  transition: 0.4s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
 }
 
 .project-card a {
@@ -209,12 +224,11 @@ section {
   padding: 10px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  text-align: center;
+  transition: 0.4s;
 }
 
-.video-card p {
-  margin-top: 8px;
-  font-weight: 500;
+.video-card:hover {
+  transform: translateY(-8px);
 }
 
 /* FOOTER */
@@ -223,6 +237,29 @@ footer {
   padding: 20px;
   background: #0f172a;
   color: white;
+}
+
+/* ANIMATION */
+.fade-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.fade-element.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* KEYFRAMES */
+@keyframes fadeDown {
+  from {opacity:0; transform: translateY(-30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 </style>
 </head>
@@ -245,25 +282,24 @@ footer {
 <div class="hero">
   <img src="profile.jpg" class="profile-img">
   <h1>Fasini Beegum</h1>
-  <p>Full Stack Developer | Django | Python | IT & Digital Solutions</p>
+  <p>Full Stack Developer | Python | Django | IT & Digital Solutions</p>
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="about">
+<section id="about" class="fade-element">
   <h2 class="section-title">About Me</h2>
-
   <p>
     I am an IT B.Tech graduate with hands-on experience in PHP, Python, Django, and full-stack development.
-    I began my career as a full-stack trainer, teaching over 35 students daily and helping them build real-world project skills.
-    Later, I transitioned into full-time development, where I independently created systems including Inventory Management, HR Management, and Learning Management Systems with online classes and exams.
+    I started my career as a full-stack trainer where I guided learners in building real-world projects.
+    Later, I moved into development and built systems including Inventory Management, HR Management, and Learning Management Systems.
     <br><br>
-    I am skilled in both frontend and backend development, and I also handle website updates, IT support, troubleshooting, social media management, and media design.
-    I enjoy learning new technologies and continuously improving my skills to deliver practical and effective solutions.
+    I work on both frontend and backend development, along with website updates, IT support, troubleshooting, social media management, and media design.
+    I continuously explore new technologies to improve my skills and deliver effective solutions.
   </p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills-section">
+<section id="skills" class="skills-section fade-element">
   <h2 class="section-title">Skills</h2>
 
   <div class="skills-container">
@@ -276,38 +312,25 @@ footer {
     <span>MySQL</span>
     <span>PostgreSQL</span>
     <span>Git</span>
-
     <span>Photoshop</span>
     <span>Canva</span>
     <span>Logo Design</span>
-    <span>Social Media Design</span>
   </div>
 </section>
 
 <!-- DESIGN WORKS -->
-<section id="designs">
+<section id="designs" class="fade-element">
   <h2 class="section-title">Design Works</h2>
 
   <div class="design-gallery">
-    <div class="design-card">
-      <img src="work3.jpg">
-     
-    </div>
-
-    <div class="design-card">
-      <img src="work2.jpg">
-     
-    </div>
-
-    <div class="design-card">
-      <img src="work1.jpg">
-  
-    </div>
+    <div class="design-card"><img src="work1.jpg"></div>
+    <div class="design-card"><img src="work2.jpg"></div>
+    <div class="design-card"><img src="work3.jpg"></div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade-element">
   <h2 class="section-title">Projects</h2>
 
   <div class="projects">
@@ -324,30 +347,24 @@ footer {
 </section>
 
 <!-- VIDEOS -->
-<section id="videos">
+<section id="videos" class="fade-element">
   <h2 class="section-title">AI Advertising Videos</h2>
 
   <div class="video-grid">
 
     <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188" data-video-id="7611479757775015188">
-        <section></section>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7611479757775015188">
       </blockquote>
-    
     </div>
 
     <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052" data-video-id="7600392701284044052">
-        <section></section>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7600392701284044052">
       </blockquote>
-     
     </div>
 
     <div class="video-card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649" data-video-id="7591011294539451649">
-        <section></section>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aslshippinglinellc/video/7591011294539451649">
       </blockquote>
-    
     </div>
 
   </div>
@@ -357,7 +374,32 @@ footer {
   <p>© 2026 Fasini Beegum</p>
 </footer>
 
+<!-- SCRIPTS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script async src="https://www.tiktok.com/embed.js"></script>
+
+<script>
+/* Smooth Scroll */
+$('nav a').click(function(e){
+  e.preventDefault();
+  const target = $(this).attr('href');
+  $('html, body').animate({
+    scrollTop: $(target).offset().top - 70
+  }, 700);
+});
+
+/* Scroll Reveal */
+$(window).on('scroll', function(){
+  $('.fade-element').each(function(){
+    let top = $(this).offset().top;
+    let winBottom = $(window).scrollTop() + $(window).height();
+
+    if(top < winBottom - 50){
+      $(this).addClass('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
