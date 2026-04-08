@@ -17,7 +17,7 @@
             --card: rgba(22, 27, 34, 0.7); 
             --text: #f0f6fc;
             --text-muted: #8b949e;
-            --glass-bg: rgba(14, 17, 22, 0.85); /* Refined for Header */
+            --glass-bg: rgba(14, 17, 22, 0.85);
             --border: rgba(48, 54, 61, 0.6);
         }
 
@@ -34,7 +34,6 @@
             padding: 0 8%; height: 80px; position: fixed; width: 100%; top: 0; z-index: 1000;
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -116,6 +115,7 @@
         }
         .mini-skill:hover { background: var(--brand); border-color: var(--brand); color: #000; }
 
+        /* --- TECH STACK (RESTORED) --- */
         .skills-wrap { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
         .skill-tag { 
             background: var(--card); 
@@ -132,7 +132,7 @@
 
         /* --- GALLERY: FULL COLOR VERSION --- */
         .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .design-item { height: 300px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .design-item { height: 300px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; }
         .design-item img { 
             width: 100%; 
             height: 100%; 
@@ -140,17 +140,7 @@
             transition: 0.7s cubic-bezier(0.2, 1, 0.3, 1); 
             filter: none; /* Removed Grayscale */
         }
-        .design-item:hover img { 
-            transform: scale(1.1); 
-            filter: brightness(1.1);
-        }
-        .design-item::after {
-            content: "";
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-            opacity: 0; transition: 0.3s;
-        }
-        .design-item:hover::after { opacity: 1; }
+        .design-item:hover img { transform: scale(1.1); filter: brightness(1.1); }
 
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
         .project-card { background: var(--card); border: 1px solid var(--border); padding: 50px; border-radius: 32px; backdrop-filter: blur(10px); transition: 0.4s; }
@@ -260,8 +250,31 @@
                             <span class="mini-skill">Python</span><span class="mini-skill">Django</span><span class="mini-skill">MySQL</span><span class="mini-skill">REST API</span>
                         </div>
                     </div>
+                    <div>
+                        <p style="font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); font-weight: 800; margin-bottom: 12px; letter-spacing: 1px;">Design & Creative</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                            <span class="mini-skill">Photoshop</span><span class="mini-skill">Canva</span><span class="mini-skill">Media</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2>Technical Stack</h2>
+            <div class="accent"></div>
+        </div>
+        <div class="skills-wrap">
+            <div class="skill-tag"><i class="fab fa-python" style="color:#22d3ee"></i> Python</div>
+            <div class="skill-tag"><i class="fas fa-server" style="color:#0f766e"></i> Django</div>
+            <div class="skill-tag"><i class="fas fa-database" style="color:#0ea5e9"></i> MySQL</div>
+            <div class="skill-tag"><i class="fas fa-bolt" style="color:#14b8a6"></i> REST APIs</div>
+            <div class="skill-tag"><i class="fab fa-js" style="color:#67e8f9"></i> JavaScript</div>
+            <div class="skill-tag"><i class="fab fa-git-alt" style="color:#f43f5e"></i> Git</div>
+            <div class="skill-tag"><i class="fas fa-palette" style="color:#38bdf8"></i> Photoshop</div>
+            <div class="skill-tag"><i class="fas fa-film" style="color:#fda4af"></i> AI Video</div>
         </div>
     </section>
 
@@ -305,6 +318,7 @@
         </div>
         <div class="video-grid">
             <div class="video-card">
+                <div class="video-header"><span style="font-weight:700">#01</span><span class="video-label label-red">WITHOUT ASL</span></div>
                 <div class="video-container">
                     <video controls playsinline preload="metadata" muted>
                         <source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v1.mp4" type="video/mp4">
@@ -312,6 +326,7 @@
                 </div>
             </div>
             <div class="video-card">
+                <div class="video-header"><span style="font-weight:700">#02</span><span class="video-label label-blue">WITH ASL</span></div>
                 <div class="video-container">
                     <video controls playsinline preload="metadata" muted>
                         <source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v2.mp4" type="video/mp4">
@@ -319,6 +334,7 @@
                 </div>
             </div>
             <div class="video-card">
+                <div class="video-header"><span style="font-weight:700">#03</span><span class="video-label label-cyan">USA TO UAE</span></div>
                 <div class="video-container">
                     <video controls playsinline preload="metadata" muted>
                         <source src="https://raw.githubusercontent.com/fasinifasil/fasini-portfolio/main/v3.mp4" type="video/mp4">
@@ -335,16 +351,15 @@
     <script>
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) { nav.classList.add('scrolled'); } 
-            else { nav.classList.remove('scrolled'); }
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
         });
 
-        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('reveal'); }
+                if (entry.isIntersecting) entry.target.classList.add('reveal');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
