@@ -13,7 +13,7 @@
             --brand: #2dd4bf; 
             --brand-alt: #10b981;
             --brand-glow: rgba(45, 212, 191, 0.4);
-            --bg: #020617;       /* Darker Slate for more contrast */
+            --bg: #020617;       
             --bg-lighter: #0f172a; 
             --card: rgba(30, 41, 59, 0.5); 
             --text: #f8fafc;
@@ -24,7 +24,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background-color 0.5s ease; }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 10px; }
@@ -73,7 +73,9 @@
         /* --- Bento Grid --- */
         .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
         .bento { background: var(--card); border: 1px solid var(--border); padding: 45px; border-radius: 32px; transition: 0.5s; backdrop-filter: blur(15px); }
-        .bento:hover { border-color: var(--brand); background: rgba(30, 41, 59, 0.7); transform: translateY(-5px); }
+        
+        /* HOVER INTERACTION: BACKGROUND HIGHLIGHT */
+        .bento:hover { border-color: var(--brand); background: rgba(45, 212, 191, 0.05); transform: translateY(-5px); }
         
         .text-gradient { background: linear-gradient(90deg, var(--brand), #a3e635); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
 
@@ -86,7 +88,7 @@
         .skills-wrap { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 1000px; margin: 0 auto; }
         .skill-tag { background: var(--card); border: 1px solid var(--border); padding: 15px 25px; border-radius: 20px; display: flex; align-items: center; gap: 12px; font-weight: 700; transition: 0.4s; cursor: default; }
         .skill-tag i { font-size: 1.4rem; }
-        .skill-tag:hover { border-color: var(--brand); transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 20px var(--brand-glow); }
+        .skill-tag:hover { border-color: var(--brand); transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 20px var(--brand-glow); background: rgba(45, 212, 191, 0.1); }
 
         /* --- Gallery --- */
         .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -99,7 +101,7 @@
         /* --- Projects --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .project-card { background: var(--card); border: 1px solid var(--border); padding: 50px; border-radius: 40px; transition: 0.5s; position: relative; overflow: hidden; }
-        .project-card:hover { border-color: var(--brand); transform: translateY(-10px); }
+        .project-card:hover { border-color: var(--brand); transform: translateY(-10px); background: rgba(45, 212, 191, 0.05); }
         .project-card::before { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle at top right, var(--brand-glow), transparent 70%); }
         .project-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; color: var(--bg); background: var(--brand); padding: 14px 30px; border-radius: 16px; text-decoration: none; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         .project-link:hover { transform: scale(1.05); box-shadow: 0 10px 20px var(--brand-glow); }
@@ -125,6 +127,15 @@
             section { padding: 80px 5%; }
             .hero h1 { font-size: 3.5rem; }
         }
+        
+        /* HOVER TEXT CLASS */
+        .hover-bg-trigger {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .hover-bg-trigger:hover {
+            color: var(--brand);
+        }
     </style>
 </head>
 <body>
@@ -149,8 +160,8 @@
                 <div class="profile-ring"></div>
                 <img src="profile.jpeg" class="profile-img" alt="Fasini Beegum">
             </div>
-      <h1>Fasini Beegum</h1>
-<p>Full Stack Developer building scalable web applications using Python, Django, and modern web technologies.</p>
+            <h1>Fasini Beegum</h1>
+            <p class="hover-bg-trigger" data-bg="#06212e">Full Stack Developer building scalable web applications using Python, Django, and modern web technologies.</p>
         </div>
     </section>
 
@@ -161,11 +172,9 @@
                    <i class="fas fa-map-marker-alt"></i> DUBAI, UAE
                 </div>
                 <h2 style="margin-bottom: 30px;"> Hi, I’m Fasini —<br><span class="text-gradient">Full Stack Developer & IT Professional</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
-     I develop secure, high‑performance web applications using Python, Django, and modern web technologies.
-A continuous learner who always stays updated with the latest tools, trends, and industry practices
-
-
+                <p class="hover-bg-trigger" data-bg="#0b1e2b" style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
+                    I develop secure, high‑performance web applications using Python, Django, and modern web technologies.
+                    A continuous learner who always stays updated with the latest tools, trends, and industry practices.
                 </p>
             </div>
 
@@ -229,16 +238,15 @@ A continuous learner who always stays updated with the latest tools, trends, and
             <div class="project-card">
                 <i class="fas fa-id-card-clip" style="font-size: 3rem; color: var(--brand); margin-bottom: 30px; display:block;"></i>
                 <h3 style="font-size: 1.5rem; font-weight: 800;">HR Management</h3>
-                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 20px;">Automates daily attendance, monthly reports, salary calculation, and payroll processing.
-Ensures accurate employee tracking and reduces manual HR workload.</p>
+                <p class="hover-bg-trigger" data-bg="#0c1d1a" style="color: var(--text-muted); font-size: 1rem; margin-top: 20px;">Automates daily attendance, monthly reports, salary calculation, and payroll processing.
+                Ensures accurate employee tracking and reduces manual HR workload.</p>
                 <a href="https://www.hrgca.org/login/?next=/" class="project-link" target="_blank">View Live System <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="project-card">
                 <i class="fas fa-boxes-packing" style="font-size: 3rem; color: var(--brand); margin-bottom: 30px; display:block;"></i>
                 <h3 style="font-size: 1.5rem; font-weight: 800;">Inventory Management System</h3>
-                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 20px;">Inventory Management System that tracks stock, vehicle movement, and garage operations.
-Includes complete before/after status updates, repair workflow, and gate pass tracking
-</p>
+                <p class="hover-bg-trigger" data-bg="#1d162b" style="color: var(--text-muted); font-size: 1rem; margin-top: 20px;">Inventory Management System that tracks stock, vehicle movement, and garage operations.
+                Includes complete before/after status updates, repair workflow, and gate pass tracking.</p>
                 <a href="https://www.gcainventory.ae/" class="project-link" target="_blank">View Live System <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -286,6 +294,20 @@ Includes complete before/after status updates, repair workflow, and gate pass tr
         }, observerOptions);
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Background Color Hover Effect logic
+        const triggers = document.querySelectorAll('.hover-bg-trigger');
+        const defaultBg = "#020617";
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => {
+                const color = trigger.getAttribute('data-bg');
+                document.body.style.backgroundColor = color;
+            });
+            trigger.addEventListener('mouseleave', () => {
+                document.body.style.backgroundColor = defaultBg;
+            });
+        });
 
         // Lightbox
         const lightbox = document.getElementById('lightbox');
